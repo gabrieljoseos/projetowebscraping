@@ -37,8 +37,9 @@ df['new_price'] = df['new_price_reais'] + df['new_price_cents'] / 100
 # Retirar o "Por" em seller
 df['seller'] = df['seller'].str.replace(r'^Por\s+', '', regex=True)
 
-# Seller nulo colocar MercadoLivre
+# Seller nulo colocar MercadoLivre User e Discount nulo colocar Sem desconto
 df['seller'] = df['seller'].fillna('MercadoLivre User')
+df['discount'] = df['discount'].fillna('Sem desconto')
 
 # Eliminar colunas indesejadas  
 df.drop(columns=['old_price_reais','old_price_cents','new_price_reais','new_price_cents'])

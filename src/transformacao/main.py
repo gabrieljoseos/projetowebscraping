@@ -5,7 +5,7 @@ import os
 
 # Caminho relativo dos arquivos
 jsonl_file = os.path.join(os.path.dirname(__file__), '../../data/data.jsonl')
-db_file = os.path.join(os.path.dirname(__file__), '../../data/qoutes.db')
+db_file = os.path.join(os.path.dirname(__file__), '../../data/quotes.db')
 
 # Verificar se o arquivo JSONL existe
 if not os.path.exists(jsonl_file):

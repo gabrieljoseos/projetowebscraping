@@ -1,9 +1,18 @@
 import pandas as pd
 import sqlite3
-from datetime import datetime 
+from datetime import datetime
+import os
+
+# Caminho relativo dos arquivos
+jsonl_file = os.path.join(os.path.dirname(__file__), '../../data/data.jsonl')
+db_file = os.path.join(os.path.dirname(__file__), '../../data/qoutes.db')
+
+# Verificar se o arquivo JSONL existe
+if not os.path.exists(jsonl_file):
+    raise FileNotFoundError(f"O arquivo {jsonl_file} não foi encontrado.")
 
 # ler o dado extraído
-df = pd.read_json('../../data/data.jsonl', lines=True)
+df = pd.read_json(jsonl_file, lines=True)
 
 # Setar todas aas colunas 
 pd.options.display.max_columns = None
@@ -39,7 +48,7 @@ new_order = ['name','seller','old_price','discount','new_price','_source','date_
 df = df[new_order]
 
 # Conectar BD
-conn = sqlite3.connect('../../data/qoutes.db')
+conn = sqlite3.connect(db_file)
 
 # Salvar dataframe no banco de dados
 df.to_sql('mercadolivre_cel', conn, if_exists='replace', index=False)

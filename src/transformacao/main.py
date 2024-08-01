@@ -3,7 +3,7 @@ import sqlite3
 from datetime import datetime 
 
 # ler o dado extraído
-df = pd.read_json('../../../data/data.jsonl', lines=True)
+df = pd.read_json('../../data/data.jsonl', lines=True)
 
 # Setar todas aas colunas 
 pd.options.display.max_columns = None
@@ -37,3 +37,15 @@ df.drop(columns=['old_price_reais','old_price_cents','new_price_reais','new_pric
 # Reordenar as colunas
 new_order = ['name','seller','old_price','discount','new_price','_source','date_scraping']
 df = df[new_order]
+
+# Conectar BD
+conn = sqlite3.connect('../../data/qoutes.db')
+
+# Salvar dataframe no banco de dados
+df.to_sql('mercadolivre_cel', conn, if_exists='replace', index=False)
+
+# Fechar conexção com o BD
+conn.close()
+
+# Imprimir DF
+print(df.head())

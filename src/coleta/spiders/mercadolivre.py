@@ -12,21 +12,17 @@ class MercadolivreSpider(scrapy.Spider):
 
         for product in products:
             name = product.css('p.promotion-item__title::text').get()
-            old_price_reais = product.css('span.andes-money-amount__fraction::text').getall()[1] if len(product.css('span.andes-money-amount__fraction::text').getall()) > 1 else None
-            old_price_cents = product.css('span.andes-money-amount__cents::text').getall()[1] if len(product.css('span.andes-money-amount__cents::text').getall()) > 1 else None
-            new_price_reais = product.css('span.andes-money-amount__fraction::text').get()
-            new_price_cents = product.css('span.andes-money-amount__cents::text').get()
+            old_price = product.css('span.andes-money-amount__fraction::text').getall()[1] if len(product.css('span.andes-money-amount__fraction::text').getall()) > 1 else None
+            new_price = product.css('span.andes-money-amount__fraction::text').get()
             discount = product.css('span.promotion-item__discount-text::text').get()
             seller = product.css('span.promotion-item__seller::text').get()
 
             yield {
                 'name': name,
-                'old_price_reais': old_price_reais,
-                'old_price_cents': old_price_cents,
-                'new_price_reais': new_price_reais,
-                'new_price_cents': new_price_cents,
+                'old_price': old_price,
+                'new_price': new_price,
                 'discount': discount,
-                'seller': seller,
+                'seller': seller, 
             }
 # Puxar a informação de todas a páginas
         if self.page_count < self.max_pages:

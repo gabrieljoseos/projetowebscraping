@@ -24,8 +24,8 @@ df['_source'] = 'https://www.mercadolivre.com.br/ofertas?container_id=MLB779535-
 df['date_scraping'] = datetime.now()
 
 # Transformar dados
-df['old_price'] = df['old_price'].fillna(0).astype(float)
-df['new_price'] = df['new_price'].fillna(0).astype(float)
+df['old_price'] = df['old_price'].fillna(0).astype(float) 
+df['new_price'] = df['new_price'].fillna(0).astype(float)  
 
 # Retirar o "Por" em seller e tirar tudo após % em desconto
 df['seller'] = df['seller'].str.replace(r'^Por\s+', '', regex=True)
@@ -50,3 +50,4 @@ conn.close()
 
 # Imprimir DF
 print(df.head())
+print(df.dtypes)

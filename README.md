@@ -35,7 +35,10 @@ OS.
 <div align="center">
   <img src="https://github.com/user-attachments/assets/117f8456-c929-4d31-b402-99ed3d559516"</img>
 </div>
-" utilizado o DBeaver para conectar ao banco de daods SQlite3 e realizar as consultas </br>
+<div class="warning">
+   <em>utilizado o DBeaver para conectar ao banco de daods SQlite3 e realizar as consultas </em>
+</div>
+</br>
 
 ## DataViz
 
@@ -45,8 +48,9 @@ OS.
 <div align="center">
   <img src="https://github.com/user-attachments/assets/9b0284b8-8af0-4547-b924-b14326860f36"</img>
 </div>
-
-Utilizado o stremlit para realizar os cards e gráfico de barra, mas para o gráfico de torta foi realizado no ploty.
+<div class="warning">
+   <em>Utilizado o stremlit para realizar os cards e gráfico de barra, mas para o gráfico de torta foi realizado no ploty.</em>
+</div>
 
 ---
 Não pude publicar o aplicativo por um erro no meu IP, mas estou trabalhando para fazer a liberação. 

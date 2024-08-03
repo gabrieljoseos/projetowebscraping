@@ -36,7 +36,7 @@ OS.
   <img src="https://github.com/user-attachments/assets/117f8456-c929-4d31-b402-99ed3d559516"</img>
 </div>
 <div class="warning">
-   <em>utilizado o DBeaver para conectar ao banco de daods SQlite3 e realizar as consultas </em>
+   <em>Utilizado o DBeaver para conectar ao banco de daods SQlite3 e realizar as consultas </em>
 </div>
 </br>
 
